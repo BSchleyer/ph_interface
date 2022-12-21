@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^(?!src|favicon)(.*) index.php?c=$1 [QSA]

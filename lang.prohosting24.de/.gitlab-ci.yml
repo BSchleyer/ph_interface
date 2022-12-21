@@ -1,0 +1,28 @@
+stages:
+  - build
+docker-build-main:
+  # Official docker image.
+  stage: build
+  before_script:
+    - printenv
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - docker build --no-cache -t "$CI_REGISTRY_IMAGE" .
+    - docker push "$CI_REGISTRY_IMAGE"
+  only:
+    - main
+  tags:
+    - shell
+
+docker-build-dev:
+  # Official docker image.
+  stage: build
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - docker build --no-cache --pull -t "$CI_REGISTRY_IMAGE:dev" .
+    - docker push "$CI_REGISTRY_IMAGE:dev"
+  only:
+    - dev
+  tags:
+    - shell

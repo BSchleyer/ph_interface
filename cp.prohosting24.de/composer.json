@@ -1,0 +1,12 @@
+{
+    "name": "ph24/cp.prohhosting24.de",
+    "require": {
+        "predis/predis": "^1.1"
+    },
+    "authors": [
+        {
+            "name": "FlorianGH",
+            "email": "34156280+FlorianGH@users.noreply.github.com"
+        }
+    ]
+}

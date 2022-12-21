@@ -1,0 +1,3 @@
+src/configs/config.json
+src/configs/languages/*.json
+src/cache/*.html
